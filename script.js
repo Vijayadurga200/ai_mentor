@@ -420,26 +420,34 @@ document.addEventListener("DOMContentLoaded", () => {
   loadState();
   initTime();
   initTheme();
-  setupEventListeners();
-  renderDashboard();
-  renderPlanner();
-  renderSubjectsGrid();
-  renderPYQs();
-  renderFormulas();
-  renderNotes();
-  renderWeakTopics();
-  renderMockCenter();
-  renderAnalytics();
-  renderCalendar();
-  renderAchievements();
-  renderResources();
-  renderSettings();
-  renderProfile();
 
-  // Hide splash start button spinner if active
-  document.getElementById("splash-start-btn").addEventListener("click", () => {
-    navigateTo("screen-login");
-  });
+  // Always start on splash screen
+  const loginWrapper = document.getElementById("login-layout-wrapper");
+  const mainWrapper  = document.getElementById("main-layout-wrapper");
+  if (loginWrapper) loginWrapper.style.display = "flex";
+  if (mainWrapper)  mainWrapper.style.display  = "none";
+
+  // Activate splash screen
+  document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+  const splash = document.getElementById("screen-splash");
+  if (splash) splash.classList.add("active");
+
+  // Get Started button → Login screen
+  const startBtn = document.getElementById("splash-start-btn");
+  if (startBtn) {
+    startBtn.addEventListener("click", () => navigateTo("screen-login"));
+  }
+
+  // Login / Google / Guest buttons
+  const loginBtn  = document.getElementById("login-btn");
+  const googleBtn = document.getElementById("google-login-btn");
+  const guestBtn  = document.getElementById("guest-login-btn");
+  if (loginBtn)  loginBtn.addEventListener("click",  performLogin);
+  if (googleBtn) googleBtn.addEventListener("click", performLogin);
+  if (guestBtn)  guestBtn.addEventListener("click",  performLogin);
+
+  // All other event listeners (notes, chat, mocks, etc.)
+  setupEventListeners();
 });
 
 // Update Simulated Status Bar Time
