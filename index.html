@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI GATE Mentor – GATE CSE 2027 Portal</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Full-Screen Desktop Wrapper -->
+  <div class="app-container" id="login-layout-wrapper">
+    <!-- SCREEN 1: SPLASH SCREEN -->
+    <div class="screen active" id="screen-splash">
+      <div class="splash-logo-container">
+        <div class="splash-ring"></div>
+        <i class="fas fa-graduation-cap splash-icon"></i>
+      </div>
+      <div>
+        <h1 class="splash-title">AI GATE Mentor</h1>
+        <p style="color: var(--text-secondary); margin-top: 8px; font-size: 14px;">Your Personal AI-powered Study Companion for GATE CSE 2027</p>
+      </div>
+      <button class="splash-btn" id="splash-start-btn">Get Started</button>
+    </div>
+
+    <!-- SCREEN 2: LOGIN SCREEN -->
+    <div class="screen" id="screen-login">
+      <div class="login-header">
+        <div class="splash-logo-container" style="width: 80px; height: 80px; margin: 0 auto 12px;">
+          <i class="fas fa-brain splash-icon" style="font-size: 30px;"></i>
+        </div>
+        <h2 class="login-title">Welcome Back</h2>
+        <p style="color: var(--text-secondary); font-size: 13px; margin-top: 4px;">Sign in to sync your study metrics</p>
+      </div>
+      <div class="login-inputs">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="Email Address" class="login-input" id="login-email" value="aspirant@gate2027.com">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Password" class="login-input" id="login-password" value="gatecse2027">
+        </div>
+      </div>
+      <button class="login-btn" id="login-btn">Log In</button>
+      <div class="divider">or</div>
+      <button class="social-login-btn" id="google-login-btn">
+        <i class="fab fa-google" style="color: #ea4335;"></i> Continue with Google
+      </button>
+      <button class="guest-btn" id="guest-login-btn">Continue as Guest (Offline Mode)</button>
+    </div>
+  </div>
+
+  <div class="desktop-layout-wrapper" id="main-layout-wrapper" style="display: none;">
+    
+    <!-- Persistent Left Navigation Sidebar (Notion-style) -->
+    <aside class="desktop-sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div>
+          <div class="sidebar-title">GATE CSE 2027</div>
+          <div style="font-size: 11px; color: var(--text-secondary);">AI Study Portal</div>
+        </div>
+      </div>
+
+      <!-- Quick user stats inside the sidebar -->
+      <div class="sidebar-user-stats card" style="padding: 12px; margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; margin-bottom: 4px;">
+          <span>Streak: <b style="color: #f97316;"><i class="fas fa-fire"></i> <span id="sidebar-streak-val">12 Days</span></b></span>
+          <span>XP: <b style="color: #eab308;"><i class="fas fa-star"></i> <span id="sidebar-xp-val">3400</span></b></span>
+        </div>
+        <div style="width: 100%; height: 5px; background: var(--bg-secondary); border-radius: 3px; overflow: hidden; margin-top: 6px;">
+          <div style="width: 60%; height: 100%; background: var(--primary-gradient);" id="sidebar-xp-fill"></div>
+        </div>
+        <div style="font-size: 9px; color: var(--text-muted); margin-top: 4px; text-align: right;">Level 4 Scholar</div>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a class="sidebar-item active" onclick="navigateTo('screen-home')" data-screen="screen-home">
+          <i class="fas fa-home"></i> Home Dashboard
+        </a>
+        <a class="sidebar-item" onclick="navigateTo('screen-planner')" data-screen="screen-planner">
+          <i class="fas fa-calendar-check"></i> Daily Planner
+        </a>
+        <a class="sidebar-item" onclick="navigateTo('screen-subjects')" data-screen="screen-subjects">
+          <i class="fas fa-book"></i> Syllabus Tracker
+        </a>
+        <a class="sidebar-item" onclick="navigateTo('screen-chat')" data-screen="screen-chat">
+          <i class="fas fa-comments"></i> AI Mentor Chat
+        </a>
+        <a class="sidebar-item" onclick="navigateTo('screen-pyqs')" data-screen="screen-pyqs">
+          <i class="fas fa-question-circle"></i> Previous Year Qs
+        </a>
+        <a class="sidebar-item" onclick="navigateTo('screen-weak-topics')" data-screen="screen-weak-topics">
+          <i class="fas fa-exclamation-triangle"></i> Weak Areas Tracker
+        </a>
+        <a class="sidebar-item" onclick="navigateTo('screen-mocks')" data-screen="screen-mocks">
+          <i class="fas fa-vial"></i> Mock Test Center
+        </a>
+        <a class="sidebar-item" onclick="navigateTo('screen-formulas')" data-screen="screen-formulas">
+          <i class="fas fa-square-root-alt"></i> Formula Book
+        </a>
+        <a class="sidebar-item" onclick="navigateTo('screen-notes')" data-screen="screen-notes">
+          <i class="fas fa-sticky-note"></i> Custom Notes
+        </a>
+        <a class="sidebar-item" onclick="navigateTo('screen-achievements')" data-screen="screen-achievements">
+          <i class="fas fa-trophy"></i> Rewards & Streaks
+        </a>
+        <a class="sidebar-item" onclick="navigateTo('screen-resources')" data-screen="screen-resources">
+          <i class="fas fa-link"></i> Web Resources
+        </a>
+        <a class="sidebar-item" onclick="navigateTo('screen-settings')" data-screen="screen-settings">
+          <i class="fas fa-cog"></i> App Settings
+        </a>
+      </nav>
+
+      <div style="border-top: 1px solid var(--border-color); padding-top: 14px; margin-top: auto;">
+        <a class="sidebar-item" onclick="logout()" style="color: #ef4444;">
+          <i class="fas fa-sign-out-alt"></i> Log Out
+        </a>
+      </div>
+    </aside>
+
+    <!-- Workspace Main Panel -->
+    <div class="desktop-main-content">
+      
+      <!-- Top Workspace Header -->
+      <header class="app-header">
+        <div class="header-title">
+          <i class="fas fa-brain"></i>
+          <span>AI GATE Mentor – CSE 2027</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <!-- Active countdown badge in header -->
+          <div class="header-countdown" id="header-countdown-badge">
+            <i class="fas fa-clock"></i> <span id="header-countdown-days">215 Days</span> left
+          </div>
+          <button class="header-btn" id="header-theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="header-btn" onclick="navigateTo('screen-profile')" aria-label="Profile">
+            <i class="fas fa-user-circle"></i>
+          </button>
+        </div>
+      </header>
+
+      <!-- Central View Workspace -->
+      <div class="app-content" id="app-content">
+
+        <!-- SCREEN 3: HOME DASHBOARD -->
+        <div class="screen active" id="screen-home">
+          
+          <div class="dashboard-grid">
+            
+            <!-- Left Side Core stats -->
+            <div class="dashboard-main-col">
+              
+              <!-- Countdown Banner -->
+              <div class="countdown-banner" style="margin-bottom: 16px;">
+                <div>
+                  <div class="countdown-label">COUNTDOWN TO GATE 2027</div>
+                  <div style="font-size: 12px; color: var(--text-muted);">Target Exam: Feb 6, 2027</div>
+                </div>
+                <div class="countdown-digits" id="countdown-timer" style="font-size: 26px;">215 Days</div>
+              </div>
+
+              <!-- Today's Study Goal with Progress Ring -->
+              <div class="card grid-2" style="align-items: center; margin-bottom: 16px; gap: 24px;">
+                <div class="progress-ring-container">
+                  <svg class="progress-ring" width="100" height="100">
+                    <circle class="progress-ring-circle" stroke="var(--border-color)" stroke-width="8" fill="transparent" r="42" cx="50" cy="50"/>
+                    <circle class="progress-ring-circle" id="home-progress-ring" stroke="var(--accent-color)" stroke-width="8" fill="transparent" r="42" cx="50" cy="50" stroke-dasharray="263.89" stroke-dashoffset="131"/>
+                  </svg>
+                  <div class="progress-text">
+                    <span class="progress-val" id="home-progress-pct" style="font-size: 24px;">50%</span>
+                    <span class="progress-lbl">done</span>
+                  </div>
+                </div>
+                <div>
+                  <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 6px;">Today's Study Goal</h3>
+                  <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 10px;" id="home-goal-desc">Complete 3 of 6 study sessions planned for today.</p>
+                  <div style="font-size: 12px; color: var(--text-muted); display: flex; gap: 12px;">
+                    <span><i class="fas fa-clock"></i> <span id="home-remaining-hours">3.5</span> hours remaining</span>
+                    <span>•</span>
+                    <span style="color: #10b981;"><i class="fas fa-bolt"></i> +600 XP potential</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Dashboard Quick Links -->
+              <div class="grid-2" style="gap: 16px;">
+                <div class="card clickable-card" style="text-align: center; cursor: pointer;" onclick="navigateTo('screen-planner')">
+                  <i class="fas fa-calendar-check" style="font-size: 26px; color: var(--accent-color); margin-bottom: 8px;"></i>
+                  <div style="font-size: 14px; font-weight: 700;">Daily Planner</div>
+                  <div style="font-size: 11px; color: var(--text-secondary); margin-top: 4px;">6 active slots scheduled</div>
+                </div>
+                <div class="card clickable-card" style="text-align: center; cursor: pointer;" onclick="navigateTo('screen-pyqs')">
+                  <i class="fas fa-question-circle" style="font-size: 26px; color: #10b981; margin-bottom: 8px;"></i>
+                  <div style="font-size: 14px; font-weight: 700;">Practice PYQs</div>
+                  <div style="font-size: 11px; color: var(--text-secondary); margin-top: 4px;">2018 - 2024 Gate papers</div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right Side AI pick & Motivation -->
+            <div class="dashboard-side-col">
+              
+              <!-- AI Recommendation Card -->
+              <div class="card recommendation-card" id="home-rec-card" style="padding: 20px;">
+                <span class="recommendation-badge" style="top: 16px; right: 16px;"><i class="fas fa-magic"></i> AI PICK</span>
+                <h4 style="font-size: 12px; color: var(--accent-color); text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px;">Suggested Topic</h4>
+                <h3 style="font-size: 18px; font-weight: 700; margin: 8px 0 6px;" id="home-rec-topic-name">Process Synchronization</h3>
+                <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.4;">Based on recent mock test analytics, OS process controls require review to lift expected marks.</p>
+                <button class="btn-primary pyq-btn" id="home-rec-action-btn" style="padding: 10px 14px; font-size: 12px; width: 100%;">Study Recommended Topic</button>
+              </div>
+
+              <!-- Daily Quote -->
+              <div class="quote-box" style="margin-top: 16px; padding: 14px 18px;">
+                <p id="home-quote" style="font-size: 13px; line-height: 1.5; color: var(--text-secondary); font-style: italic;">
+                  "Success in GATE is the sum of small efforts, repeated day in and day out."
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- SCREEN 4: DAILY PLANNER -->
+        <div class="screen" id="screen-planner">
+          <div class="planner-day-nav">
+            <button class="planner-day-btn active" id="btn-planner-today">Today</button>
+            <button class="planner-day-btn" id="btn-planner-tomorrow">Tomorrow</button>
+            <button class="planner-day-btn" id="btn-planner-weekly">Weekly Overview</button>
+          </div>
+          <div class="card" style="padding: 14px; display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-size: 14px; font-weight: 500;">Daily Workload Balance</div>
+            <div style="font-weight: 700; color: #10b981;" id="planner-balance-status"><i class="fas fa-smile"></i> Optimal Workload</div>
+          </div>
+          <div class="planner-list" id="planner-list-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <!-- Planner items generated dynamically -->
+          </div>
+        </div>
+
+        <!-- SCREEN 5: SUBJECTS GRID -->
+        <div class="screen" id="screen-subjects">
+          <div style="margin-bottom: 12px;">
+            <h3 class="title-font" style="font-size: 20px; margin-bottom: 4px;">GATE CSE Syllabus Tracker</h3>
+            <p style="font-size: 13px; color: var(--text-secondary);">Click on any subject to explore syllabus subtopics, check difficulty, and view weightage.</p>
+          </div>
+          <div class="subjects-grid" id="subjects-grid-container">
+            <!-- Subjects cards generated dynamically -->
+          </div>
+        </div>
+
+        <!-- SCREEN 6: TOPIC DETAILS -->
+        <div class="screen" id="screen-topic-details">
+          <div class="topic-list-header">
+            <button class="btn-secondary pyq-btn" id="topic-back-btn" style="align-self: flex-start; padding: 8px 16px; margin-bottom: 12px;">
+              <i class="fas fa-chevron-left"></i> Back to Subjects
+            </button>
+            <h2 id="topic-subject-title" style="font-size: 24px;">Operating Systems</h2>
+            <div style="font-size: 13px; color: var(--text-secondary); display: flex; gap: 16px; margin-top: 4px;">
+              <span>GATE Weightage: <b id="topic-subject-weightage" style="color: var(--accent-color);">8-10%</b></span>
+              <span>Completion: <b id="topic-subject-completion" style="color:#10b981;">0%</b></span>
+            </div>
+          </div>
+          <div class="topics-grid" id="topics-list-container">
+            <!-- Topic list items generated dynamically -->
+          </div>
+        </div>
+
+        <!-- SCREEN 7: AI CHAT MENTOR -->
+        <div class="screen" id="screen-chat" style="height: calc(100vh - 120px);">
+          <div class="chat-container">
+            <!-- Chat messages window -->
+            <div class="chat-messages" id="chat-messages-container">
+              <div class="chat-message ai">
+                Hello! I am your AI GATE Mentor. I have analyzed your study progress.
+                <br><br>
+                You've completed <b>35%</b> of Algorithms and are currently working on <b>Process Synchronization</b> in Operating Systems. Ask me anything to adjust your schedule, generate customized revision loops, or clarify concepts!
+              </div>
+            </div>
+            <!-- Recommended questions -->
+            <div class="suggested-qs" id="chat-suggestions-container">
+              <button class="suggested-q-btn">I have only 3 hours today.</button>
+              <button class="suggested-q-btn">I missed my study plan yesterday.</button>
+              <button class="suggested-q-btn">Analyze my weak subjects.</button>
+              <button class="suggested-q-btn">What should I study now?</button>
+            </div>
+            <!-- Input Bar -->
+            <div class="chat-input-area">
+              <input type="text" class="chat-input" id="chat-input-field" placeholder="Type a message or click a suggestion above...">
+              <button class="chat-send-btn" id="chat-send-btn" aria-label="Send message">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 8: PREVIOUS YEAR QUESTIONS (PYQs) -->
+        <div class="screen" id="screen-pyqs">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <h3 class="title-font" style="font-size: 20px;">GATE Previous Year Question Bank</h3>
+          </div>
+          <!-- Filters -->
+          <div class="filter-bar" style="margin-bottom: 16px;">
+            <select class="filter-select" id="pyq-subject-filter">
+              <option value="all">All Subjects</option>
+            </select>
+            <select class="filter-select" id="pyq-year-filter">
+              <option value="all">All Years</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+            </select>
+            <select class="filter-select" id="pyq-difficulty-filter">
+              <option value="all">All Difficulties</option>
+              <option value="Easy">Easy</option>
+              <option value="Medium">Medium</option>
+              <option value="Hard">Hard</option>
+            </select>
+          </div>
+          <!-- PYQ cards container -->
+          <div class="pyq-grid" id="pyq-cards-container">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- SCREEN 9: FORMULA SHEETS -->
+        <div class="screen" id="screen-formulas">
+          <h3 class="title-font" style="font-size: 20px; margin-bottom: 4px;">Formula Sheets & Quick Notes</h3>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">Subject-wise formulas, shortcuts, and memory tricks.</p>
+          <div class="filter-bar" id="formula-subject-tabs" style="margin-bottom: 16px;">
+            <!-- Dynamically populated subject tabs -->
+          </div>
+          <div class="formulas-grid" id="formula-cards-container">
+            <!-- Dynamically populated formula cards -->
+          </div>
+        </div>
+
+        <!-- SCREEN 10: NOTES -->
+        <div class="screen" id="screen-notes">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <h3 class="title-font" style="font-size: 20px;">Custom Notes</h3>
+            <button class="pyq-btn btn-primary" onclick="openNoteModal()"><i class="fas fa-plus"></i> New Note</button>
+          </div>
+          <div class="search-bar" style="margin-bottom: 16px;">
+            <i class="fas fa-search"></i>
+            <input type="text" class="search-input" id="notes-search-input" placeholder="Search notes...">
+          </div>
+          <h4 class="title-font" style="font-size: 15px; margin-bottom: 8px;"><i class="fas fa-thumbtack" style="color:var(--accent-color);"></i> Pinned Notes</h4>
+          <div class="notes-grid" id="pinned-notes-container">
+            <!-- Pinned notes -->
+          </div>
+          <h4 class="title-font" style="font-size: 15px; margin: 16px 0 8px;">All Notes</h4>
+          <div class="notes-grid" id="all-notes-container">
+            <!-- Recent notes -->
+          </div>
+        </div>
+
+        <!-- SCREEN 11: WEAK TOPICS -->
+        <div class="screen" id="screen-weak-topics">
+          <h3 class="title-font" style="font-size: 20px; margin-bottom: 4px;">Weak Topics & Revision Focus</h3>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">Identified automatically from incorrect answers and missed study planner targets.</p>
+          <div class="weak-topics-grid" id="weak-topics-container">
+            <!-- Filled dynamically -->
+          </div>
+        </div>
+
+        <!-- SCREEN 12: MOCK TESTS -->
+        <div class="screen" id="screen-mocks">
+          <div class="mock-tab-nav" style="margin-bottom: 16px;">
+            <div class="mock-tab active" id="tab-mocks-available">Available Tests</div>
+            <div class="mock-tab" id="tab-mocks-history">Past Scores & Analysis</div>
+          </div>
+          <div id="mocks-tab-content">
+            <!-- Content dynamically rendered -->
+          </div>
+        </div>
+
+        <!-- SCREEN 13: ANALYTICS -->
+        <div class="screen" id="screen-analytics">
+          <h3 class="title-font" style="font-size: 20px; margin-bottom: 4px;">Performance Analytics Dashboard</h3>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">Dynamic visual metrics tracking consistency and subject strength.</p>
+          
+          <div class="analytics-layout-grid">
+            
+            <!-- Daily Study Hours -->
+            <div class="card">
+              <div class="card-title"><i class="fas fa-clock"></i> Daily Study Hours</div>
+              <div class="chart-container-inner" id="study-hours-chart">
+                <!-- Bar chart -->
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 0 10px;">
+                <div class="chart-label">Mon</div>
+                <div class="chart-label">Tue</div>
+                <div class="chart-label">Wed</div>
+                <div class="chart-label">Thu</div>
+                <div class="chart-label">Fri</div>
+                <div class="chart-label">Sat</div>
+                <div class="chart-label">Sun</div>
+              </div>
+            </div>
+
+            <!-- Consistency Heatmap -->
+            <div class="card">
+              <div class="card-title"><i class="fas fa-th"></i> Consistency Heatmap</div>
+              <div class="heatmap" id="consistency-heatmap">
+                <!-- Grid of cells -->
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--text-muted); margin-top: 12px;">
+                <span>Less study</span>
+                <span>More study</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Standing / AIR projection card -->
+          <div class="card grid-2" style="margin-top: 16px; padding: 20px;">
+            <div style="text-align: center;">
+              <div style="font-size: 12px; color: var(--text-secondary); text-transform: uppercase;">Expected GATE Score</div>
+              <div style="font-size: 32px; font-weight: 800; color: var(--accent-color); margin-top: 6px;" id="analytics-exp-score">654</div>
+            </div>
+            <div style="text-align: center; border-left: 1px solid var(--border-color);">
+              <div style="font-size: 12px; color: var(--text-secondary); text-transform: uppercase;">Estimated All India Rank (AIR)</div>
+              <div style="font-size: 32px; font-weight: 800; color: #10b981; margin-top: 6px;" id="analytics-exp-air">Top 800</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 14: CALENDAR -->
+        <div class="screen" id="screen-calendar">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <h3 class="title-font" style="font-size: 20px;" id="calendar-month-year">July 2026</h3>
+            <div style="display: flex; gap: 8px;">
+              <button class="header-btn" id="calendar-prev-month"><i class="fas fa-chevron-left"></i></button>
+              <button class="header-btn" id="calendar-next-month"><i class="fas fa-chevron-right"></i></button>
+            </div>
+          </div>
+          
+          <div class="card" style="padding: 20px; margin-bottom: 16px;">
+            <div class="calendar-grid" id="calendar-grid-container">
+              <!-- Filled dynamically -->
+            </div>
+          </div>
+
+          <!-- Legend -->
+          <div class="card" style="padding: 14px; font-size: 12px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; text-align: center;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+              <span style="display: inline-block; width: 14px; height: 14px; border-radius: 4px; background-color: rgba(16, 185, 129, 0.25);"></span> Completed
+            </div>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+              <span style="display: inline-block; width: 14px; height: 14px; border-radius: 4px; background-color: rgba(239, 68, 68, 0.2);"></span> Missed
+            </div>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+              <span style="display: inline-block; width: 14px; height: 14px; border-radius: 4px; background-color: rgba(99, 102, 241, 0.25);"></span> Revision
+            </div>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+              <span style="display: inline-block; width: 14px; height: 14px; border-radius: 4px; background-color: #f59e0b;"></span> Mock Test
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 15: ACHIEVEMENTS -->
+        <div class="screen" id="screen-achievements">
+          <div class="card" style="display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center; padding: 24px;">
+            <i class="fas fa-trophy" style="font-size: 48px; color: #eab308;"></i>
+            <div>
+              <h2 style="font-size: 22px;" id="achieve-level-title">Level 4 Scholar</h2>
+              <p style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">Earn badges and study XP to improve your predicted standing.</p>
+            </div>
+            <div style="width: 100%; max-width: 400px; height: 8px; background-color: var(--bg-secondary); border-radius: 4px; overflow: hidden; margin-top: 8px;">
+              <div style="width: 60%; height: 100%; background: var(--primary-gradient); border-radius: 4px;" id="achieve-level-fill"></div>
+            </div>
+            <div style="font-size: 12px; color: var(--text-muted); display: flex; justify-content: space-between; width: 100%; max-width: 400px;">
+              <span>3,400 XP</span>
+              <span>5,000 XP for Level 5</span>
+            </div>
+          </div>
+          <h3 class="title-font" style="font-size: 16px; margin: 16px 0 8px;">Unlocked Badges</h3>
+          <div class="card" style="padding: 0;" id="achievements-list-container">
+            <!-- Achievements lists -->
+          </div>
+        </div>
+
+        <!-- SCREEN 16: RESOURCES -->
+        <div class="screen" id="screen-resources">
+          <h3 class="title-font" style="font-size: 20px; margin-bottom: 4px;">GATE CSE Resource Center</h3>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">Access references, standard books, papers, and handwritten notes.</p>
+          <div id="resources-list-container" class="resources-grid">
+            <!-- Loaded dynamically -->
+          </div>
+        </div>
+
+        <!-- SCREEN 17: SETTINGS -->
+        <div class="screen" id="screen-settings">
+          <h3 class="title-font" style="font-size: 20px; margin-bottom: 12px;">Settings</h3>
+          <div class="card" style="max-width: 600px;">
+            <div class="settings-option">
+              <span class="settings-option-lbl">Dark Mode Theme</span>
+              <label class="toggle-switch">
+                <input type="checkbox" id="settings-darkmode-toggle" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="settings-option">
+              <span class="settings-option-lbl">Study Reminders & Notifications</span>
+              <label class="toggle-switch">
+                <input type="checkbox" id="settings-reminders-toggle" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="settings-option" style="cursor: pointer;" id="settings-backup-btn">
+              <span class="settings-option-lbl"><i class="fas fa-cloud-upload-alt" style="margin-right: 8px; color: var(--accent-color);"></i> Backup Progress (Simulated Cloud)</span>
+              <i class="fas fa-chevron-right" style="color: var(--text-muted);"></i>
+            </div>
+            <div class="settings-option" style="cursor: pointer;" id="settings-restore-btn">
+              <span class="settings-option-lbl"><i class="fas fa-cloud-download-alt" style="margin-right: 8px; color: #10b981;"></i> Restore Progress</span>
+              <i class="fas fa-chevron-right" style="color: var(--text-muted);"></i>
+            </div>
+            <div class="settings-option" style="cursor: pointer;" id="settings-export-btn">
+              <span class="settings-option-lbl"><i class="fas fa-file-export" style="margin-right: 8px; color: #f59e0b;"></i> Export Study Log (.JSON)</span>
+              <i class="fas fa-chevron-right" style="color: var(--text-muted);"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 18: PROFILE -->
+        <div class="screen" id="screen-profile">
+          <div class="profile-layout-grid">
+            <div class="card" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; padding: 24px;">
+              <div style="width: 90px; height: 90px; border-radius: 45px; background: var(--primary-gradient); display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; font-weight: 700; border: 4px solid var(--border-color);">
+                GD
+              </div>
+              <div>
+                <h2 style="font-size: 20px;" id="profile-name">Gate Devotee</h2>
+                <p style="font-size: 13px; color: var(--text-secondary);" id="profile-email">aspirant@gate2027.com</p>
+              </div>
+            </div>
+
+            <div class="card" style="display: flex; flex-direction: column; justify-content: center; gap: 20px; padding: 24px;">
+              <div class="grid-2" style="text-align: center;">
+                <div>
+                  <div style="font-size: 11px; color: var(--text-secondary); text-transform: uppercase;">Total Study Time</div>
+                  <div style="font-size: 24px; font-weight: 800; color: var(--text-primary); margin-top: 6px;" id="profile-study-hours">48.5h</div>
+                </div>
+                <div style="border-left: 1px solid var(--border-color);">
+                  <div style="font-size: 11px; color: var(--text-secondary); text-transform: uppercase;">Completed Topics</div>
+                  <div style="font-size: 24px; font-weight: 800; color: var(--text-primary); margin-top: 6px;" id="profile-completed-topics">18 / 60</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 20px; margin-top: 16px;">
+            <div class="card-title"><i class="fas fa-chart-pie"></i> Predicted GATE Standing</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 12px;">
+              <div style="background-color: var(--bg-secondary); padding: 14px; border-radius: 12px; border: 1px solid var(--border-color);">
+                <span style="font-size: 13px; color: var(--text-secondary);">Predicted Score:</span>
+                <div style="font-size: 24px; font-weight: 800; color: var(--accent-color); margin-top: 6px;" id="profile-expected-score">654 / 1000</div>
+              </div>
+              <div style="background-color: var(--bg-secondary); padding: 14px; border-radius: 12px; border: 1px solid var(--border-color);">
+                <span style="font-size: 13px; color: var(--text-secondary);">Predicted All India Rank (AIR):</span>
+                <div style="font-size: 24px; font-weight: 800; color: #10b981; margin-top: 6px;" id="profile-expected-rank">Top 800 (AIR ~780)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Floating Action Button (FAB) -->
+    <div class="fab-menu" id="app-fab-menu">
+      <button class="fab-item" id="fab-action-note" title="Quick Note" aria-label="Quick Note">
+        <i class="fas fa-sticky-note"></i>
+      </button>
+      <button class="fab-item" id="fab-action-pyq" title="Quick PYQ Practice" aria-label="Quick PYQ Practice">
+        <i class="fas fa-question"></i>
+      </button>
+      <button class="fab-item" id="fab-action-formula" title="Quick Formula Review" aria-label="Quick Formula Review">
+        <i class="fas fa-square-root-alt"></i>
+      </button>
+    </div>
+    <button class="fab" id="app-fab" aria-label="Quick action menu">
+      <i class="fas fa-plus"></i>
+    </button>
+
+    <!-- GENERAL MODAL DIALOG POPUP -->
+    <div class="modal-overlay" id="app-modal-overlay">
+      <div class="modal-card">
+        <h3 class="modal-title" id="modal-title">Popup Notification</h3>
+        <div class="modal-body" id="modal-body">
+          Some details here...
+        </div>
+        <div style="display: flex; gap: 10px; justify-content: flex-end;" id="modal-footer">
+          <button class="pyq-btn btn-secondary" id="modal-cancel-btn">Cancel</button>
+          <button class="pyq-btn btn-primary" id="modal-ok-btn">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NOTE EDITOR MODAL -->
+    <div class="modal-overlay" id="note-modal-overlay">
+      <div class="modal-card" style="max-width: 480px;">
+        <h3 class="modal-title" id="note-modal-title">Create New Note</h3>
+        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 10px;">
+          <input type="text" class="login-input" id="note-edit-title" placeholder="Note Title" style="padding-left: 12px;">
+          <textarea class="login-input" id="note-edit-text" placeholder="Write something in Markdown style..." style="padding-left: 12px; height: 160px; font-family: monospace; resize: none;"></textarea>
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 13px;">
+            <input type="checkbox" id="note-edit-pin" style="width: 16px; height: 16px;">
+            <label for="note-edit-pin"><i class="fas fa-thumbtack"></i> Pin this note</label>
+          </div>
+        </div>
+        <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 12px;">
+          <button class="pyq-btn btn-secondary" onclick="closeNoteModal()">Cancel</button>
+          <button class="pyq-btn btn-primary" id="note-save-btn">Save Note</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOCK TEST EXAM CONTAINER MODAL -->
+    <div class="modal-overlay" id="mock-exam-overlay">
+      <div class="modal-card" style="max-width: 500px; height: 80%; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <h3 class="modal-title" id="mock-exam-title" style="text-align: left; font-size: 16px;">Mock Test</h3>
+            <span style="font-weight: 700; color: var(--accent-color); font-size: 16px;" id="mock-exam-timer">29:59</span>
+          </div>
+          <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 8px; margin-bottom: 16px; font-size: 13px; color: var(--text-secondary);">
+            Question <span id="mock-exam-q-num">1</span> of <span id="mock-exam-q-total">10</span>
+            <span style="float: right;" id="mock-exam-q-marks">(2 Marks)</span>
+          </div>
+          <div id="mock-exam-question-body" style="font-size: 14px; line-height: 1.5; margin-bottom: 16px;">
+            <!-- Question text -->
+          </div>
+          <div id="mock-exam-options-container" style="display: flex; flex-direction: column; gap: 10px;">
+            <!-- Options buttons -->
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 12px; margin-top: 16px;">
+          <button class="pyq-btn btn-secondary" id="mock-exam-prev-btn">Previous Question</button>
+          <button class="pyq-btn btn-secondary" id="mock-exam-skip-btn">Skip Question</button>
+          <button class="pyq-btn btn-primary" id="mock-exam-next-btn">Next Question</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

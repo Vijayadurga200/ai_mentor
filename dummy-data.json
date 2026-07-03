@@ -1,0 +1,332 @@
+{
+  "subjects": [
+    {
+      "id": "algorithms",
+      "name": "Algorithms",
+      "icon": "fa-project-diagram",
+      "color": "from-blue-500 to-indigo-600",
+      "weightage": "6-8%",
+      "topics": [
+        { "id": "algo_asymptotic", "name": "Asymptotic Analysis & Recurrences", "difficulty": "Medium", "priority": "High", "weightage": "High", "estimatedTime": 6, "status": "Completed", "isWeak": false, "revisionCount": 2 },
+        { "id": "algo_divide", "name": "Divide and Conquer Algorithms", "difficulty": "Medium", "priority": "High", "weightage": "High", "estimatedTime": 8, "status": "In Progress", "isWeak": false, "revisionCount": 1 },
+        { "id": "algo_greedy", "name": "Greedy Algorithms", "difficulty": "Easy", "priority": "Medium", "weightage": "Medium", "estimatedTime": 6, "status": "Not Started", "isWeak": false, "revisionCount": 0 },
+        { "id": "algo_dp", "name": "Dynamic Programming", "difficulty": "Hard", "priority": "High", "weightage": "High", "estimatedTime": 12, "status": "Not Started", "isWeak": true, "revisionCount": 0 },
+        { "id": "algo_graphs", "name": "Graph Traversal (BFS, DFS, Shortest Paths)", "difficulty": "Hard", "priority": "High", "weightage": "High", "estimatedTime": 10, "status": "Not Started", "isWeak": false, "revisionCount": 0 },
+        { "id": "algo_sorting", "name": "Sorting and Searching", "difficulty": "Easy", "priority": "High", "weightage": "Medium", "estimatedTime": 6, "status": "Completed", "isWeak": false, "revisionCount": 2 }
+      ]
+    },
+    {
+      "id": "os",
+      "name": "Operating Systems",
+      "icon": "fa-desktop",
+      "color": "from-teal-400 to-emerald-600",
+      "weightage": "8-10%",
+      "topics": [
+        { "id": "os_cpu", "name": "CPU Scheduling Algorithms", "difficulty": "Easy", "priority": "High", "weightage": "High", "estimatedTime": 6, "status": "Completed", "isWeak": false, "revisionCount": 3 },
+        { "id": "os_sync", "name": "Process Synchronization & Semaphores", "difficulty": "Hard", "priority": "High", "weightage": "High", "estimatedTime": 10, "status": "In Progress", "isWeak": true, "revisionCount": 1 },
+        { "id": "os_deadlocks", "name": "Deadlocks (Prevention, Avoidance, Detection)", "difficulty": "Medium", "priority": "Medium", "weightage": "Medium", "estimatedTime": 6, "status": "Not Started", "isWeak": false, "revisionCount": 0 },
+        { "id": "os_memory", "name": "Memory Management & Paging", "difficulty": "Hard", "priority": "High", "weightage": "High", "estimatedTime": 12, "status": "Not Started", "isWeak": false, "revisionCount": 0 },
+        { "id": "os_virtual", "name": "Virtual Memory & Page Replacement", "difficulty": "Medium", "priority": "High", "weightage": "High", "estimatedTime": 8, "status": "Not Started", "isWeak": false, "revisionCount": 0 },
+        { "id": "os_file", "name": "File Systems & Disk Scheduling", "difficulty": "Easy", "priority": "Low", "weightage": "Medium", "estimatedTime": 6, "status": "Not Started", "isWeak": false, "revisionCount": 0 }
+      ]
+    },
+    {
+      "id": "dbms",
+      "name": "Database Management Systems",
+      "icon": "fa-database",
+      "color": "from-purple-500 to-indigo-700",
+      "weightage": "6-8%",
+      "topics": [
+        { "id": "db_er", "name": "ER Model and Relational Algebra", "difficulty": "Medium", "priority": "High", "weightage": "High", "estimatedTime": 8, "status": "Completed", "isWeak": false, "revisionCount": 2 },
+        { "id": "db_sql", "name": "SQL Queries (Nested, Joins, Aggregations)", "difficulty": "Medium", "priority": "High", "weightage": "High", "estimatedTime": 10, "status": "Completed", "isWeak": false, "revisionCount": 1 },
+        { "id": "db_norm", "name": "Normalization & Functional Dependencies", "difficulty": "Hard", "priority": "High", "weightage": "High", "estimatedTime": 12, "status": "In Progress", "isWeak": true, "revisionCount": 1 },
+        { "id": "db_trans", "name": "Transactions and Concurrency Control", "difficulty": "Hard", "priority": "High", "weightage": "High", "estimatedTime": 8, "status": "Not Started", "isWeak": false, "revisionCount": 0 },
+        { "id": "db_indexing", "name": "File Organization & B/B+ Tree Indexing", "difficulty": "Medium", "priority": "Medium", "weightage": "Medium", "estimatedTime": 6, "status": "Not Started", "isWeak": false, "revisionCount": 0 }
+      ]
+    },
+    {
+      "id": "cn",
+      "name": "Computer Networks",
+      "icon": "fa-network-wired",
+      "color": "from-pink-500 to-rose-600",
+      "weightage": "8-10%",
+      "topics": [
+        { "id": "cn_layers", "name": "OSI & TCP/IP Protocol Architectures", "difficulty": "Easy", "priority": "Medium", "weightage": "Medium", "estimatedTime": 4, "status": "Completed", "isWeak": false, "revisionCount": 1 },
+        { "id": "cn_flow", "name": "Flow Control & Error Control (sliding window)", "difficulty": "Medium", "priority": "High", "weightage": "High", "estimatedTime": 8, "status": "Not Started", "isWeak": false, "revisionCount": 0 },
+        { "id": "cn_routing", "name": "IP Routing Algorithms (OSPF, BGP, RIP)", "difficulty": "Hard", "priority": "High", "weightage": "High", "estimatedTime": 10, "status": "Not Started", "isWeak": false, "revisionCount": 0 },
+        { "id": "cn_subnets", "name": "IP Addressing, Subnetting & CIDR", "difficulty": "Hard", "priority": "High", "weightage": "High", "estimatedTime": 12, "status": "In Progress", "isWeak": true, "revisionCount": 0 },
+        { "id": "cn_transport", "name": "TCP & UDP Protocols, Congestion Control", "difficulty": "Hard", "priority": "High", "weightage": "High", "estimatedTime": 10, "status": "Not Started", "isWeak": false, "revisionCount": 0 },
+        { "id": "cn_application", "name": "Application Layer Protocols (DNS, SMTP, HTTP)", "difficulty": "Easy", "priority": "Low", "weightage": "Low", "estimatedTime": 6, "status": "Not Started", "isWeak": false, "revisionCount": 0 }
+      ]
+    },
+    {
+      "id": "toc",
+      "name": "Theory of Computation",
+      "icon": "fa-square-root-alt",
+      "color": "from-cyan-500 to-blue-600",
+      "weightage": "7-9%",
+      "topics": [
+        { "id": "toc_dfa", "name": "Finite Automata (DFA, NFA) & Regular Expressions", "difficulty": "Medium", "priority": "High", "weightage": "High", "estimatedTime": 10, "status": "Completed", "isWeak": false, "revisionCount": 2 },
+        { "id": "toc_cfl", "name": "Context-Free Grammars, Pushdown Automata (PDA)", "difficulty": "Hard", "priority": "High", "weightage": "High", "estimatedTime": 12, "status": "In Progress", "isWeak": false, "revisionCount": 1 },
+        { "id": "toc_turing", "name": "Turing Machines and Undecidability", "difficulty": "Hard", "priority": "High", "weightage": "High", "estimatedTime": 14, "status": "Not Started", "isWeak": false, "revisionCount": 0 }
+      ]
+    },
+    {
+      "id": "compiler",
+      "name": "Compiler Design",
+      "icon": "fa-terminal",
+      "color": "from-amber-500 to-orange-600",
+      "weightage": "4-6%",
+      "topics": [
+        { "id": "comp_lexical", "name": "Lexical Analysis", "difficulty": "Easy", "priority": "Medium", "weightage": "Medium", "estimatedTime": 4, "status": "Completed", "isWeak": false, "revisionCount": 1 },
+        { "id": "comp_syntax", "name": "Syntax Analysis (LL, LR Parsers)", "difficulty": "Hard", "priority": "High", "weightage": "High", "estimatedTime": 12, "status": "Not Started", "isWeak": true, "revisionCount": 0 },
+        { "id": "comp_sdt", "name": "Syntax Directed Translation (SDT)", "difficulty": "Medium", "priority": "Medium", "weightage": "Medium", "estimatedTime": 6, "status": "Not Started", "isWeak": false, "revisionCount": 0 },
+        { "id": "comp_codegen", "name": "Intermediate Code & Code Optimization", "difficulty": "Hard", "priority": "High", "weightage": "Medium", "estimatedTime": 8, "status": "Not Started", "isWeak": false, "revisionCount": 0 }
+      ]
+    },
+    {
+      "id": "programming",
+      "name": "Programming & Data Structures",
+      "icon": "fa-code",
+      "color": "from-emerald-500 to-teal-600",
+      "weightage": "10-12%",
+      "topics": [
+        { "id": "prog_c", "name": "C Programming (Pointers, Recursion)", "difficulty": "Medium", "priority": "High", "weightage": "High", "estimatedTime": 10, "status": "Completed", "isWeak": false, "revisionCount": 3 },
+        { "id": "prog_stacks", "name": "Stacks, Queues, and Linked Lists", "difficulty": "Easy", "priority": "High", "weightage": "Medium", "estimatedTime": 6, "status": "Completed", "isWeak": false, "revisionCount": 2 },
+        { "id": "prog_trees", "name": "Trees and Binary Search Trees (BST)", "difficulty": "Medium", "priority": "High", "weightage": "High", "estimatedTime": 8, "status": "Completed", "isWeak": false, "revisionCount": 1 },
+        { "id": "prog_graphs_ds", "name": "Graphs & Hashing Representation", "difficulty": "Medium", "priority": "Medium", "weightage": "Medium", "estimatedTime": 6, "status": "Not Started", "isWeak": false, "revisionCount": 0 }
+      ]
+    },
+    {
+      "id": "coa",
+      "name": "Computer Organization & Architecture",
+      "icon": "fa-microchip",
+      "color": "from-red-500 to-pink-600",
+      "weightage": "6-8%",
+      "topics": [
+        { "id": "coa_instructions", "name": "Machine Instructions and Addressing Modes", "difficulty": "Medium", "priority": "High", "weightage": "High", "estimatedTime": 8, "status": "Completed", "isWeak": false, "revisionCount": 2 },
+        { "id": "coa_alu", "name": "ALU, Data Path & Control Unit Design", "difficulty": "Hard", "priority": "Medium", "weightage": "Medium", "estimatedTime": 8, "status": "Not Started", "isWeak": false, "revisionCount": 0 },
+        { "id": "coa_memory", "name": "Memory Hierarchy & Cache Memory Design", "difficulty": "Hard", "priority": "High", "weightage": "High", "estimatedTime": 12, "status": "In Progress", "isWeak": true, "revisionCount": 1 },
+        { "id": "coa_pipeline", "name": "Instruction Pipelining and Hazards", "difficulty": "Hard", "priority": "High", "weightage": "High", "estimatedTime": 10, "status": "Not Started", "isWeak": false, "revisionCount": 0 },
+        { "id": "coa_io", "name": "I/O Interface (Interrupts, DMA)", "difficulty": "Easy", "priority": "Low", "weightage": "Low", "estimatedTime": 4, "status": "Not Started", "isWeak": false, "revisionCount": 0 }
+      ]
+    },
+    {
+      "id": "digital",
+      "name": "Digital Logic",
+      "icon": "fa-toggle-on",
+      "color": "from-violet-500 to-fuchsia-600",
+      "weightage": "4-6%",
+      "topics": [
+        { "id": "dig_boolean", "name": "Boolean Algebra & Minimization (K-Maps)", "difficulty": "Easy", "priority": "High", "weightage": "High", "estimatedTime": 6, "status": "Completed", "isWeak": false, "revisionCount": 2 },
+        { "id": "dig_combinational", "name": "Combinational Circuits (Mux, Decoders, Adders)", "difficulty": "Medium", "priority": "High", "weightage": "High", "estimatedTime": 8, "status": "Completed", "isWeak": false, "revisionCount": 1 },
+        { "id": "dig_sequential", "name": "Sequential Circuits (Latches, Flip-Flops, Registers)", "difficulty": "Hard", "priority": "High", "weightage": "High", "estimatedTime": 10, "status": "In Progress", "isWeak": false, "revisionCount": 1 },
+        { "id": "dig_counters", "name": "Counters and Finite State Machines (FSM)", "difficulty": "Hard", "priority": "High", "weightage": "High", "estimatedTime": 8, "status": "Not Started", "isWeak": false, "revisionCount": 0 }
+      ]
+    },
+    {
+      "id": "discrete",
+      "name": "Discrete Mathematics",
+      "icon": "fa-calculator",
+      "color": "from-yellow-500 to-amber-600",
+      "weightage": "7-9%",
+      "topics": [
+        { "id": "disc_logic", "name": "Propositional & First-Order Logic", "difficulty": "Medium", "priority": "High", "weightage": "High", "estimatedTime": 8, "status": "Completed", "isWeak": false, "revisionCount": 1 },
+        { "id": "disc_sets", "name": "Sets, Relations, Functions & Partially Ordered Sets", "difficulty": "Medium", "priority": "High", "weightage": "High", "estimatedTime": 8, "status": "Completed", "isWeak": false, "revisionCount": 2 },
+        { "id": "disc_graphs", "name": "Graph Theory (Connectivity, Colorings)", "difficulty": "Hard", "priority": "High", "weightage": "High", "estimatedTime": 10, "status": "In Progress", "isWeak": false, "revisionCount": 0 },
+        { "id": "disc_groups", "name": "Group Theory & Combinatorics", "difficulty": "Hard", "priority": "Medium", "weightage": "Medium", "estimatedTime": 8, "status": "Not Started", "isWeak": false, "revisionCount": 0 }
+      ]
+    },
+    {
+      "id": "maths",
+      "name": "Engineering Mathematics",
+      "icon": "fa-chart-line",
+      "color": "from-blue-600 to-cyan-600",
+      "weightage": "5-7%",
+      "topics": [
+        { "id": "math_la", "name": "Linear Algebra (Matrices, Eigenvalues)", "difficulty": "Medium", "priority": "High", "weightage": "High", "estimatedTime": 8, "status": "Completed", "isWeak": false, "revisionCount": 2 },
+        { "id": "math_calculus", "name": "Calculus (Limits, Integrals, Maxima/Minima)", "difficulty": "Medium", "priority": "Medium", "weightage": "Medium", "estimatedTime": 8, "status": "Not Started", "isWeak": false, "revisionCount": 0 },
+        { "id": "math_prob", "name": "Probability & Statistics (Bayes, Random Variables)", "difficulty": "Hard", "priority": "High", "weightage": "High", "estimatedTime": 10, "status": "In Progress", "isWeak": true, "revisionCount": 1 }
+      ]
+    },
+    {
+      "id": "aptitude",
+      "name": "General Aptitude",
+      "icon": "fa-brain",
+      "color": "from-orange-500 to-red-600",
+      "weightage": "15%",
+      "topics": [
+        { "id": "apt_verbal", "name": "Verbal Ability (Grammar, Vocabulary)", "difficulty": "Easy", "priority": "Medium", "weightage": "Medium", "estimatedTime": 6, "status": "Completed", "isWeak": false, "revisionCount": 1 },
+        { "id": "apt_quant", "name": "Quantitative Aptitude (Ratio, Percentage, Speed)", "difficulty": "Medium", "priority": "High", "weightage": "High", "estimatedTime": 12, "status": "In Progress", "isWeak": false, "revisionCount": 1 },
+        { "id": "apt_analytical", "name": "Analytical & Spatial Reasoning", "difficulty": "Medium", "priority": "Medium", "weightage": "Medium", "estimatedTime": 8, "status": "Not Started", "isWeak": false, "revisionCount": 0 }
+      ]
+    }
+  ],
+  "pyqs": [
+    {
+      "id": "pyq_1",
+      "subjectId": "algorithms",
+      "topicId": "algo_asymptotic",
+      "year": 2024,
+      "difficulty": "Medium",
+      "marks": 2,
+      "question": "What is the time complexity of the function defined by the recurrence relation T(n) = 3T(n/4) + n log n?",
+      "options": [
+        "A) Θ(n)",
+        "B) Θ(n log n)",
+        "C) Θ(n log² n)",
+        "D) Θ(n^1.5)"
+      ],
+      "correctOption": "B",
+      "solution": "Apply Master Theorem. a = 3, b = 4, f(n) = n log n. Since log_b(a) = log_4(3) ≈ 0.79, and f(n) is asymptotically larger than n^0.79, we fall into Case 3 (or extension). Specifically, T(n) = Θ(f(n)) = Θ(n log n).",
+      "explanation": "Master theorem comparison: n^(log_4(3)) = n^0.792. f(n) = n log n dominates n^0.792. Applying Master Theorem Case 3 criteria yield Θ(n log n).",
+      "userStatus": "Correct"
+    },
+    {
+      "id": "pyq_2",
+      "subjectId": "os",
+      "topicId": "os_sync",
+      "year": 2023,
+      "difficulty": "Hard",
+      "marks": 2,
+      "question": "Two processes, P1 and P2, share a binary semaphore S initialized to 1. P1 runs: wait(S); critical_section(); signal(S);. P2 runs: wait(S); critical_section(); signal(S);. If wait and signal are non-atomic, which of the following is true?",
+      "options": [
+        "A) Mutual exclusion is still guaranteed.",
+        "B) Mutual exclusion might be violated.",
+        "C) A deadlock is guaranteed to occur.",
+        "D) Starvation is eliminated."
+      ],
+      "correctOption": "B",
+      "solution": "If wait/signal operations are non-atomic, context switching can happen in the middle of executing a wait instruction, which allows both processes to find S > 0 and enter the critical section simultaneously, violating mutual exclusion.",
+      "explanation": "Wait contains reading and decrementing. If process 1 reads S=1, gets switched out before decrementing, process 2 also reads S=1. Both enter critical section, violating mutual exclusion.",
+      "userStatus": "Wrong"
+    },
+    {
+      "id": "pyq_3",
+      "subjectId": "dbms",
+      "topicId": "db_norm",
+      "year": 2022,
+      "difficulty": "Hard",
+      "marks": 2,
+      "question": "Given a relation schema R(A, B, C, D, E, G) and functional dependencies F = {A -> B, BC -> DE, AE -> G}. What is the primary key of relation R?",
+      "options": [
+        "A) AC",
+        "B) ACD",
+        "C) ACE",
+        "D) ACG"
+      ],
+      "correctOption": "A",
+      "solution": "Compute closure of AC. (AC)+ = {A, C}. Since A -> B, we get {A, B, C}. Since BC -> DE, we get {A, B, C, D, E}. Since AE -> G, we get {A, B, C, D, E, G}. Thus (AC)+ contains all attributes, making AC a superkey. No smaller subset of AC is a superkey, so AC is the primary key.",
+      "explanation": "Calculate closures: (AC)+ = AC -> ABC (A->B) -> ABCDE (BC->DE) -> ABCDEG (AE->G). Hence AC is the candidate key.",
+      "userStatus": "Unsolved"
+    },
+    {
+      "id": "pyq_4",
+      "subjectId": "cn",
+      "topicId": "cn_subnets",
+      "year": 2024,
+      "difficulty": "Medium",
+      "marks": 1,
+      "question": "An IP subnet has mask 255.255.255.240. What is the maximum number of assignable host IP addresses in this subnet?",
+      "options": [
+        "A) 16",
+        "B) 14",
+        "C) 30",
+        "D) 32"
+      ],
+      "correctOption": "B",
+      "solution": "The last octet has 240, which is 11110000 in binary. This leaves 4 bits for host addresses. Total host combinations = 2^4 = 16. Subtracting 2 (one for network address and one for broadcast address) leaves 14 assignable host IPs.",
+      "explanation": "Assignable IPs = 2^(32 - mask_bits) - 2. For 240, mask is /28. Host bits = 4. 2^4 - 2 = 14.",
+      "userStatus": "Unsolved"
+    }
+  ],
+  "mockTests": [
+    {
+      "id": "mock_mini_1",
+      "name": "Algorithms Mini Mock Test 01",
+      "type": "Mini",
+      "duration": 30,
+      "totalMarks": 15,
+      "questionsCount": 10,
+      "completed": true,
+      "score": 12,
+      "accuracy": 80,
+      "negativeMarks": 1,
+      "timeTaken": 24,
+      "weakTopicIds": ["algo_dp"],
+      "strongTopicIds": ["algo_asymptotic"]
+    },
+    {
+      "id": "mock_subject_1",
+      "name": "Operating Systems Subject Test",
+      "type": "Subject",
+      "duration": 45,
+      "totalMarks": 25,
+      "questionsCount": 15,
+      "completed": false,
+      "score": 0,
+      "accuracy": 0,
+      "negativeMarks": 0,
+      "timeTaken": 0,
+      "weakTopicIds": [],
+      "strongTopicIds": []
+    },
+    {
+      "id": "mock_full_1",
+      "name": "GATE CSE 2027 Full Length Mock 01",
+      "type": "Full",
+      "duration": 180,
+      "totalMarks": 100,
+      "questionsCount": 65,
+      "completed": false,
+      "score": 0,
+      "accuracy": 0,
+      "negativeMarks": 0,
+      "timeTaken": 0,
+      "weakTopicIds": [],
+      "strongTopicIds": []
+    }
+  ],
+  "formulaSheets": [
+    {
+      "subjectId": "algorithms",
+      "title": "Algorithms Cheat Sheet",
+      "formulas": [
+        { "name": "Master Theorem", "formula": "T(n) = aT(n/b) + f(n). Case 1: T(n) = Θ(n^(log_b(a))). Case 2: T(n) = Θ(n^(log_b(a)) * log n). Case 3: T(n) = Θ(f(n)).", "trick": "Think of it as tree depth weight vs. leaf weight." },
+        { "name": "Huffman Coding Complexity", "formula": "O(n log n) using Min-Heap.", "trick": "Always extract two minimum values recursively." }
+      ]
+    },
+    {
+      "subjectId": "os",
+      "title": "OS Process Sync Formulas",
+      "formulas": [
+        { "name": "Effective Access Time (Paging)", "formula": "EAT = Hit Ratio * (TLB access + Memory access) + Miss Ratio * (TLB access + 2 * Memory access)", "trick": "TLB is checked first. Miss causes double memory lookup (Page table + actual data)." },
+        { "name": "Disk Head Movement (SSTF)", "formula": "Sum of absolute differences |current - request| sorted by proximity.", "trick": "Always greedily choose the closest cylinder next. Watch out for starvation!" }
+      ]
+    }
+  ],
+  "achievements": [
+    { "id": "ach_streak_3", "title": "Consistency Champion", "description": "Maintain a 3-day study streak", "icon": "fa-fire", "unlocked": true, "xpReward": 150 },
+    { "id": "ach_streak_7", "title": "Unstoppable Force", "description": "Maintain a 7-day study streak", "icon": "fa-bolt", "unlocked": true, "xpReward": 500 },
+    { "id": "ach_hours_50", "title": "Scholar Spirit", "description": "Log 50 total study hours", "icon": "fa-hourglass-half", "unlocked": false, "xpReward": 400 },
+    { "id": "ach_pyq_10", "title": "GATE Cracker", "description": "Solve 10 GATE PYQs correctly", "icon": "fa-trophy", "unlocked": false, "xpReward": 300 }
+  ],
+  "resources": [
+    {
+      "title": "NPTEL & Video Lectures",
+      "items": [
+        { "name": "NPTEL Algorithms - Prof. Naveen Garg (IIT Delhi)", "url": "https://nptel.ac.in/", "type": "video" },
+        { "name": "Gate Smashers - OS & DBMS Playlists", "url": "https://www.youtube.com/@GateSmashers", "type": "video" },
+        { "name": "Knowledge Gate - GATE CSE Prep", "url": "https://www.youtube.com/@KnowledgeGate", "type": "video" }
+      ]
+    },
+    {
+      "title": "Standard Reference Books",
+      "items": [
+        { "name": "Introduction to Algorithms - Cormen, Leiserson, Rivest, Stein (CLRS)", "url": "#", "type": "book" },
+        { "name": "Operating System Concepts - Silberschatz, Galvin, Gagne", "url": "#", "type": "book" },
+        { "name": "Database System Concepts - Korth, Sudarshan", "url": "#", "type": "book" }
+      ]
+    }
+  ]
+}
