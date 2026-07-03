@@ -445,6 +445,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Update Simulated Status Bar Time
 function initTime() {
   const timeSpan = document.getElementById("status-time");
+  if (!timeSpan) return; // Exit if phone status bar is not present on desktop
   const updateSimulatedTime = () => {
     const d = new Date();
     let hours = d.getHours();
